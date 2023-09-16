@@ -16,12 +16,17 @@
 
 /* -- Express JS -- */
 const express = require('express'); // library express.js similar import
+const path = require('path'); // __dirname
 // import express from 'express'; // Library express.js'
 
 const app = express(); // instance express.js
 const port = 3000; // port
 
-// khai bao route => vd: / => home
+//ejs - config template engine => render giao điệu website lên html
+app.set('views', path.join(__dirname, 'views')); // folder views (store all render)
+app.set('view engine', 'ejs');
+
+// khai bao route => vd: / c=> home
 app.get('/', (req, res) => {
 	res.send('Hello Express by RYO IT');
 });
@@ -31,7 +36,8 @@ app.get('/abc', (req, res) => {
 });
 
 app.get('/ryoit', (req, res) => {
-	res.send('<h1>ABC by RYO IT</h1>');
+	// res.send('<h1>ABC by RYO IT</h1>');
+	res.render('sample.ejs');
 });
 
 // chay server
