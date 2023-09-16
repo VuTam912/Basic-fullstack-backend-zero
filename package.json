@@ -1,0 +1,27 @@
+{
+  "name": "fullstack-backend-zero",
+  "version": "1.0.0",
+  "description": "Ryo IT Fullstack backend zero for beginners",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VuTam912/Basic-fullstack-backend-zero.gcit"
+  },
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "author": "RYO IT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VuTam912/Basic-fullstack-backend-zero/issues"
+  },
+  "homepage": "https://github.com/VuTam912/Basic-fullstack-backend-zero#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
