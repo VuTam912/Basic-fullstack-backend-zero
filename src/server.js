@@ -17,10 +17,12 @@
 /* -- Express JS -- */
 const express = require('express'); // library express.js similar import
 const path = require('path'); // __dirname
+require('dotenv').config(); // to run env
 // import express from 'express'; // Library express.js'
 
 const app = express(); // instance express.js
-const port = 3000; // port
+const port = process.env.PORT || 8888; // port - in file .env
+const hostname = process.env.HOST_NAME;
 
 //ejs - config template engine => render giao điệu website lên html
 app.set('views', path.join(__dirname, 'views')); // folder views (store all render)
@@ -41,6 +43,6 @@ app.get('/ryoit', (req, res) => {
 });
 
 // chay server
-app.listen(port, () => {
+app.listen(port, hostname, () => {
 	console.log(`Example app is listening on port ${port}`);
 });

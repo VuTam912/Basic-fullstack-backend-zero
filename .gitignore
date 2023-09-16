@@ -1,1 +1,4 @@
+# ngăng hoặc chặn file or folder đẩy lên github
 node_modules
+
+# .env
