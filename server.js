@@ -15,16 +15,26 @@
 // });
 
 /* -- Express JS -- */
-const express = require('express'); // library express.js
+const express = require('express'); // library express.js similar import
 // import express from 'express'; // Library express.js'
 
 const app = express(); // instance express.js
-const port = 3000; // port 3000
+const port = 3000; // port
 
+// khai bao route => vd: / => home
 app.get('/', (req, res) => {
-	res.send('Hello Express');
+	res.send('Hello Express by RYO IT');
+});
+// more route => localhost:3000/abc
+app.get('/abc', (req, res) => {
+	res.send('ABC by RYO IT');
 });
 
+app.get('/ryoit', (req, res) => {
+	res.send('<h1>ABC by RYO IT</h1>');
+});
+
+// chay server
 app.listen(port, () => {
 	console.log(`Example app is listening on port ${port}`);
 });
