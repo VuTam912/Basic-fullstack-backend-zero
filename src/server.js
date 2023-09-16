@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 });
 // more route => localhost:3000/abc
 app.get('/abc', (req, res) => {
-	res.send('ABC by RYO IT');
+	res.send('HELLO WORLD by RYO IT');
 });
 
 app.get('/ryoit', (req, res) => {
