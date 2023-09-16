@@ -28,6 +28,9 @@ const hostname = process.env.HOST_NAME;
 app.set('views', path.join(__dirname, 'views')); // folder views (store all render)
 app.set('view engine', 'ejs');
 
+// config static file => public (allow access file in public)
+app.use(express.static(path.join(__dirname, 'public')));
+
 // khai bao route => vd: / c=> home
 app.get('/', (req, res) => {
 	res.send('Hello Express by RYO IT');
