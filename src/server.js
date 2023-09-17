@@ -20,6 +20,8 @@ const express = require('express'); // library express.js similar import
 const configViewEngine = require('./config/viewEngine'); // import config/view engine
 const webRoutes = require('./routes/web'); // import routes
 
+const mysql = require('mysql2');
+
 const app = express(); // instance express.js
 const port = process.env.PORT || 8888; // port - in file .env
 const hostname = process.env.HOST_NAME;
@@ -31,6 +33,22 @@ configViewEngine(app);
 // Khai bao Route
 // "/" => /home | /test => /test/home
 app.use('/', webRoutes);
+
+//test connection
+// create the connection to database
+const connection = mysql.createConnection({
+	host: 'localhost',
+	port: 3307,
+	user: 'root',
+	password: '123456',
+	database: 'ryo_it',
+});
+
+// simple query
+connection.query('SELECT * FROM Users u', function (err, results, fields) {
+	console.log('--result= ', results); // results contains rows returned by server
+	// console.log('---fields= ', fields); // fields contains extra meta data about results, if available
+});
 
 // chay server
 app.listen(port, hostname, () => {
