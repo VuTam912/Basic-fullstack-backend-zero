@@ -15,35 +15,22 @@
 // });
 
 /* -- Express JS -- */
-const express = require('express'); // library express.js similar import
-const path = require('path'); // __dirname
 require('dotenv').config(); // to run env
-// import express from 'express'; // Library express.js'
+const express = require('express'); // library express.js similar import
+const configViewEngine = require('./config/viewEngine'); // import config/view engine
+const webRoutes = require('./routes/web'); // import routes
 
 const app = express(); // instance express.js
 const port = process.env.PORT || 8888; // port - in file .env
 const hostname = process.env.HOST_NAME;
 
-//ejs - config template engine => render giao điệu website lên html
-app.set('views', path.join(__dirname, 'views')); // folder views (store all render)
-app.set('view engine', 'ejs');
+// ejs - config template engine => render giao điệu and access image/css/is in public
+// config static file
+configViewEngine(app);
 
-// config static file => public (allow access file in public)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// khai bao route => vd: / c=> home
-app.get('/', (req, res) => {
-	res.send('Hello Express by RYO IT');
-});
-// more route => localhost:3000/abc
-app.get('/abc', (req, res) => {
-	res.send('HELLO WORLD by RYO IT');
-});
-
-app.get('/ryoit', (req, res) => {
-	// res.send('<h1>ABC by RYO IT</h1>');
-	res.render('sample.ejs');
-});
+// Khai bao Route
+// "/" => /home | /test => /test/home
+app.use('/', webRoutes);
 
 // chay server
 app.listen(port, hostname, () => {
