@@ -20,7 +20,7 @@ const express = require('express'); // library express.js similar import
 const configViewEngine = require('./config/viewEngine'); // import config/view engine
 const webRoutes = require('./routes/web'); // import routes
 
-const mysql = require('mysql2');
+const connection = require('./config/database'); // import connect database
 
 const app = express(); // instance express.js
 const port = process.env.PORT || 8888; // port - in file .env
@@ -34,16 +34,7 @@ configViewEngine(app);
 // "/" => /home | /test => /test/home
 app.use('/', webRoutes);
 
-//test connection
-// create the connection to database
-const connection = mysql.createConnection({
-	host: 'localhost',
-	port: 3307,
-	user: 'root',
-	password: '123456',
-	database: 'ryo_it',
-});
-
+// note: import connection database
 // simple query
 connection.query('SELECT * FROM Users u', function (err, results, fields) {
 	console.log('--result= ', results); // results contains rows returned by server
