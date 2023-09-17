@@ -15,3 +15,15 @@
 
 * dependencies : đóng gói các thư viện trong quá trình phát triển web xong và tiến hành công khai cho mọi xem hoặc phát hành
 * devDependencies: loại bỏ thư viện không cần thiết khi phát triển web, chúng là những package/thư viện chỉ phục vụ hộ trợ môi trường code, ko phải những thư viện cho website.
+
+- Các tổ chúc của thư mực project:
+  src/
+  - config
+  - controllers
+  - middleware
+  - migration
+  - models
+  - public
+  - routes
+  - seeder
+  - views
