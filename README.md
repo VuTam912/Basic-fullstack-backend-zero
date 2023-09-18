@@ -27,3 +27,5 @@
   - routes
   - seeder
   - views
+
+## Chú ý khi chạy dư án nên mở docker trước để kết nối SQL với dự án.

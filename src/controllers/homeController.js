@@ -14,20 +14,6 @@ const getCreatePage = (req, res) => {
 	return res.render('create.ejs');
 };
 
-// ---
-
-const getApp = (req, res) => {
-	// send => not render
-	res.send('HELLO WORLD by RYO IT');
-};
-
-const getRyo_IT = (req, res) => {
-	// res.send('<h1>ABC by RYO IT</h1>');
-	res.render('sample.ejs');
-};
-
-// ---
-
 const postCreateUser = async (req, res) => {
 	// req = request (yeu cau)
 	// Code long:
@@ -59,11 +45,29 @@ const postCreateUser = async (req, res) => {
 	res.send('Created user successfully!!');
 };
 
+const getUpdatePage = (req, res) => {
+	return res.render('update.ejs');
+};
+
+// --- Example ---
+const getApp = (req, res) => {
+	// send => not render
+	res.send('HELLO WORLD by RYO IT');
+};
+
+const getRyo_IT = (req, res) => {
+	// res.send('<h1>ABC by RYO IT</h1>');
+	res.render('sample.ejs');
+};
+
+// ---
+
 // su dung nhieu bien thi su dung cap { }
 module.exports = {
 	getHomepage,
 	getCreatePage,
+	postCreateUser,
+	getUpdatePage,
 	getApp,
 	getRyo_IT,
-	postCreateUser,
 };

@@ -3,19 +3,23 @@ const express = require('express');
 const {
 	getHomepage,
 	getCreatePage,
+	getUpdatePage,
+	postCreateUser,
 	getApp,
 	getRyo_IT,
-	postCreateUser,
 } = require('../controllers/homeController');
 const router = express.Router();
 
 // router.Method('/route',handler)
 router.get('/', getHomepage);
 router.get('/create', getCreatePage);
+router.get('/update', getUpdatePage);
+
+router.post('/create-user', postCreateUser);
+
+// Example:
 // more route => localhost:3000/abc
 router.get('/abc', getApp);
 router.get('/ryoit', getRyo_IT);
-
-router.post('/create-user', postCreateUser);
 
 module.exports = router;
