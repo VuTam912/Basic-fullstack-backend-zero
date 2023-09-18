@@ -1,9 +1,10 @@
-// Đường link URL - route
+// Đường link URL - route và handle Post and get thông qua URL
 const express = require('express');
 const {
 	getHomepage,
 	getApp,
 	getRyo_IT,
+	postCreateUser,
 } = require('../controllers/homeController');
 const router = express.Router();
 
@@ -12,5 +13,7 @@ router.get('/', getHomepage);
 // more route => localhost:3000/abc
 router.get('/abc', getApp);
 router.get('/ryoit', getRyo_IT);
+
+router.post('/create-user', postCreateUser);
 
 module.exports = router;

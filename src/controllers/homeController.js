@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-// Controller - process data.. and handle Render website from route
+// Controller - process data,render,post,get...
 const getHomepage = (req, res) => {
 	// xu ly data - process data
 	// call modal
@@ -24,9 +24,16 @@ const getRyo_IT = (req, res) => {
 	res.render('sample.ejs');
 };
 
+const postCreateUser = (req, res) => {
+	// req => yeu cau
+	console.log('--res body: ', req.body);
+	res.send('Create User');
+};
+
 // su dung nhieu bien thi su dung cap { }
 module.exports = {
 	getHomepage,
 	getApp,
 	getRyo_IT,
+	postCreateUser,
 };

@@ -26,6 +26,10 @@ const app = express(); // instance express.js
 const port = process.env.PORT || 8888; // port - in file .env
 const hostname = process.env.HOST_NAME;
 
+// config req.body => handle input post
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true }));
+
 // ejs - config template engine => render giao điệu and access image/css/is in public
 // config static file
 configViewEngine(app);
