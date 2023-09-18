@@ -1,0 +1,42 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Delete A user</title>
+		<link href="/css/styles.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="topnav">
+			<a href="/">Home</a>
+			<a href="/create">Create User</a>
+		</div>
+		<div class="form-add-new">
+			<!-- method : POST -> update/create ( handle in routes/web) -->
+			<form action="/delete-user" method="post">
+				<fieldset>
+					<legend>Delete a users:</legend>
+					<div class="input-group d-none">
+						<label>Id: </label>
+						<input type="text" name="userId" value="<%= userEdit.id %>" />
+					</div>
+					<div class="input-group">
+						<label>Are you sure to delete this user with email ? </label>
+						<input
+							type="text"
+							name="email"
+							value="<%= userEdit.email %>"
+							disabled="true"
+						/>
+					</div>
+
+					<div>
+						<button class="btn_add">Confirm</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>
+
+<!-- Note: add express.json in server.js to handle request body - post -->

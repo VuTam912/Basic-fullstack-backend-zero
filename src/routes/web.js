@@ -6,6 +6,8 @@ const {
 	getUpdatePage,
 	postCreateUser,
 	postUpdateUser,
+	postDeleteUser,
+	postHandleRemoveUser,
 	getApp,
 	getRyo_IT,
 } = require('../controllers/homeController');
@@ -18,6 +20,9 @@ router.get('/update/:id', getUpdatePage);
 
 router.post('/create-user', postCreateUser);
 router.post('/update-user', postUpdateUser);
+
+router.post('/delete-user/:id', postDeleteUser);
+router.post('/delete-user', postHandleRemoveUser);
 
 // Example:
 // more route => localhost:3000/abc

@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+.table-container {
+    margin: 0 100px;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
