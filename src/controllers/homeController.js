@@ -3,6 +3,7 @@ const {
 	getAllUsers,
 	getUserById,
 	updateUserById,
+	deleteUserById,
 } = require('../services/CRUDService');
 // Controller - process data,render,post,get...
 const getHomepage = async (req, res) => {
@@ -79,7 +80,14 @@ const postDeleteUser = async (req, res) => {
 };
 
 const postHandleRemoveUser = async (req, res) => {
-	res.send('DELETE SUCCESS');
+	// do ko lấy id ở Url mà là name trong input => sử dụng body
+	const userId = req.body.userId;
+
+	console.log('check delete ID ', userId);
+
+	await deleteUserById(userId);
+	// chuyen toi trang home
+	res.redirect('/');
 };
 
 // --- Example ---
