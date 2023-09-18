@@ -26,8 +26,24 @@ const getRyo_IT = (req, res) => {
 
 const postCreateUser = (req, res) => {
 	// req => yeu cau
+	// Code long:
+	// let email = req.body.email;
+	// let name = req.body.name;
+	// let city = req.body.city;
+
+	// code short: <= should write
+	let { email, name, city } = req.body;
 	console.log('--res body: ', req.body);
-	res.send('Create User');
+
+	connection.query(
+		`INSERT INTO Users (email,name,city)
+		VALUES (?,?,?)`,
+		[email, name, city],
+		function (err, results) {
+			console.log(results);
+			res.send('Create User Successfully!!!');
+		}
+	);
 };
 
 // su dung nhieu bien thi su dung cap { }
