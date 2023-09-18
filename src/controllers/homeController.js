@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-const { getAllUsers } = require('../services/CRUDService');
+const { getAllUsers, getUserById } = require('../services/CRUDService');
 // Controller - process data,render,post,get...
 const getHomepage = async (req, res) => {
 	// xu ly data - process data
@@ -45,10 +45,14 @@ const postCreateUser = async (req, res) => {
 	res.send('Created user successfully!!');
 };
 
-const getUpdatePage = (req, res) => {
+// Update User
+const getUpdatePage = async (req, res) => {
 	const userId = req.params.id;
-	console.log('--req params: ', userId);
-	return res.render('update.ejs');
+
+	let user = await getUserById(userId);
+	console.log('---check edit result: ', user);
+
+	return res.render('update.ejs', { userEdit: user }); // x <- y
 };
 
 // --- Example ---
