@@ -1,5 +1,9 @@
 const connection = require('../config/database');
-const { getAllUsers, getUserById } = require('../services/CRUDService');
+const {
+	getAllUsers,
+	getUserById,
+	updateUserById,
+} = require('../services/CRUDService');
 // Controller - process data,render,post,get...
 const getHomepage = async (req, res) => {
 	// xu ly data - process data
@@ -50,9 +54,19 @@ const getUpdatePage = async (req, res) => {
 	const userId = req.params.id;
 
 	let user = await getUserById(userId);
-	console.log('---check edit result: ', user);
+	// console.log('---check edit result: ', user);
 
 	return res.render('update.ejs', { userEdit: user }); // x <- y
+};
+
+const postUpdateUser = async (req, res) => {
+	let { email, name, city, userId } = req.body;
+
+	await updateUserById(email, name, city, userId);
+
+	// res.send('Updated user successfully!!');
+	// chuyen huong URL home
+	res.redirect('/');
 };
 
 // --- Example ---
@@ -74,6 +88,7 @@ module.exports = {
 	getCreatePage,
 	postCreateUser,
 	getUpdatePage,
+	postUpdateUser,
 	getApp,
 	getRyo_IT,
 };

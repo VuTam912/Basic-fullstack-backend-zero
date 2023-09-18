@@ -88,3 +88,7 @@ tr:hover:not(.fields_row) {
 button {
     padding: 4px;
 }
+
+.d-none {
+    display: none;
+}
