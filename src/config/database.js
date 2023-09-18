@@ -1,7 +1,7 @@
 // config connection database - note: ko bao gio de thong tin database o ngoai server.js, phai tac rieng o file khac.
 
-const mysql = require('mysql2');
 require('dotenv').config();
+const mysql = require('mysql2/promise');
 
 // create the connection to database
 // import dotenv => lay tham so

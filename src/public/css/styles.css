@@ -51,3 +51,37 @@ button {
     cursor : pointer;
     padding: 5px;
 }
+
+/* table  */
+table {
+    font-family    : arial, sans-serif;
+    border-collapse: collapse;
+    width          : 100%;
+}
+
+td,
+th {
+    border    : 1px solid #dddddd;
+    text-align: left;
+    padding   : 8px;
+}
+
+.fields_row {
+    background-color: #2fc14a;
+    color           : white;
+}
+
+tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+tr:hover:not(.fields_row) {
+    background-color: #ccc;
+}
+
+.title {
+    margin     : 15px 10px;
+    font-size  : 20px;
+    font-weight: 600;
+
+}

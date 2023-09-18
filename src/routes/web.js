@@ -2,6 +2,7 @@
 const express = require('express');
 const {
 	getHomepage,
+	getCreatePage,
 	getApp,
 	getRyo_IT,
 	postCreateUser,
@@ -10,6 +11,7 @@ const router = express.Router();
 
 // router.Method('/route',handler)
 router.get('/', getHomepage);
+router.get('/create', getCreatePage);
 // more route => localhost:3000/abc
 router.get('/abc', getApp);
 router.get('/ryoit', getRyo_IT);

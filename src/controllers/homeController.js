@@ -14,6 +14,12 @@ const getHomepage = (req, res) => {
 	return res.render('home.ejs');
 };
 
+const getCreatePage = (req, res) => {
+	return res.render('create.ejs');
+};
+
+// ---
+
 const getApp = (req, res) => {
 	// send => not render
 	res.send('HELLO WORLD by RYO IT');
@@ -24,31 +30,43 @@ const getRyo_IT = (req, res) => {
 	res.render('sample.ejs');
 };
 
-const postCreateUser = (req, res) => {
-	// req => yeu cau
+// ---
+
+const postCreateUser = async (req, res) => {
+	// req = request (yeu cau)
 	// Code long:
 	// let email = req.body.email;
 	// let name = req.body.name;
 	// let city = req.body.city;
 
-	// code short: <= should write
+	// Code short: <= should write
 	let { email, name, city } = req.body;
-	console.log('--res body: ', req.body);
 
-	connection.query(
+	// connection.query(
+	// 	`INSERT INTO Users (email,name,city)
+	// 	VALUES (?,?,?)`,
+	// 	[email, name, city],
+	// 	function (err, results) {
+	// 		console.log(results);
+	// 		res.send('Create User Successfully!!!');
+	// 	}
+	// );
+
+	let [results, fields] = await connection.query(
 		`INSERT INTO Users (email,name,city)
 		VALUES (?,?,?)`,
-		[email, name, city],
-		function (err, results) {
-			console.log(results);
-			res.send('Create User Successfully!!!');
-		}
+		[email, name, city]
 	);
+
+	console.log('-- check result: ', results);
+
+	res.send('Created user successfully!!');
 };
 
 // su dung nhieu bien thi su dung cap { }
 module.exports = {
 	getHomepage,
+	getCreatePage,
 	getApp,
 	getRyo_IT,
 	postCreateUser,
