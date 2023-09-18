@@ -46,10 +46,10 @@
     padding: 10px;
 }
 
-button {
+.btn_add {
     margin : 10px;
     cursor : pointer;
-    padding: 5px;
+    padding: 4px;
 }
 
 /* table  */
@@ -83,5 +83,8 @@ tr:hover:not(.fields_row) {
     margin     : 15px 10px;
     font-size  : 20px;
     font-weight: 600;
+}
 
+button {
+    padding: 4px;
 }

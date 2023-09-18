@@ -1,17 +1,13 @@
 const connection = require('../config/database');
+const { getAllUsers } = require('../services/CRUDService');
 // Controller - process data,render,post,get...
-const getHomepage = (req, res) => {
+const getHomepage = async (req, res) => {
 	// xu ly data - process data
-	// call modal
-	// let users = [];
-	// connection.query('SELECT * FROM Users u', function (err, results, fields) {
-	// 	users = results;
-	// 	console.log('--result= ', results); // results contains rows returned by server
-	// 	// console.log('--- check user: ', users);
-	// 	res.send(JSON.stringify(users));
-	// });
-
-	return res.render('home.ejs');
+	// get data from database
+	let results = await getAllUsers();
+	console.log('--checks row: ', results);
+	// pass data to home.ejs and move home.ejs to handle render data (<%= listUsers %>)
+	return res.render('home.ejs', { listUsers: results });
 };
 
 const getCreatePage = (req, res) => {
