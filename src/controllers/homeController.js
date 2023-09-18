@@ -1,18 +1,17 @@
 const connection = require('../config/database');
-// Controller - process data..
-
+// Controller - process data.. and handle Render website from route
 const getHomepage = (req, res) => {
 	// xu ly data - process data
 	// call modal
-	let users = [];
+	// let users = [];
+	// connection.query('SELECT * FROM Users u', function (err, results, fields) {
+	// 	users = results;
+	// 	console.log('--result= ', results); // results contains rows returned by server
+	// 	// console.log('--- check user: ', users);
+	// 	res.send(JSON.stringify(users));
+	// });
 
-	connection.query('SELECT * FROM Users u', function (err, results, fields) {
-		users = results;
-		console.log('--result= ', results); // results contains rows returned by server
-
-		// console.log('--- check user: ', users);
-		res.send(JSON.stringify(users));
-	});
+	return res.render('home.ejs');
 };
 
 const getApp = (req, res) => {
